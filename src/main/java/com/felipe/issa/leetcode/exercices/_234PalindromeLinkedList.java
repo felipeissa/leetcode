@@ -1,25 +1,19 @@
 package com.felipe.issa.leetcode.exercices;
 
+import com.felipe.issa.leetcode.shared.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class _234PalindromeLinkedList {
 	
-	public static class ListNode {
-		int val;
-		ListNode next;
-		ListNode() {}
-		ListNode(int val) { this.val = val; }
-		ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-	}
-
 	 public boolean isPalindrome(ListNode head) {
 		 List<Integer> values = new ArrayList<>();
 		 ListNode current = head;
-		 values.add(current.val);
-		 while(current.next != null) {
-			 current = current.next;
-			 values.add(current.val);
+		 values.add(current.getVal());
+		 while(current.getNext() != null) {
+			 current = current.getNext();
+			 values.add(current.getVal());
 		 }
 		 
 		 for(int i = 0, end = values.size() -1; i < end; i++, end-- ) {
