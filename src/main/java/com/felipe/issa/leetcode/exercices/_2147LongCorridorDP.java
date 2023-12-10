@@ -1,6 +1,6 @@
 package com.felipe.issa.leetcode.exercices;
 
-import javafx.util.Pair;
+import com.felipe.issa.leetcode.shared.Pair;
 
 import java.text.MessageFormat;
 import java.util.HashMap;

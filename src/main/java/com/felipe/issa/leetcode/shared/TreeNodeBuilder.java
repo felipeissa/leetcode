@@ -10,6 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class TreeNodeBuilder {
 
     public static TreeNode buildNode(String nodes) {
+        if("[]".equals(nodes)) return null;
         String[] nodesValues = nodes.substring(1, nodes.length()-1).split(",");
         List<TreeNode> nodesStack = new ArrayList<>();
         TreeNode initialNode = new TreeNode(Integer.parseInt(nodesValues[0]));
