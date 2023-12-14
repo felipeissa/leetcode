@@ -1,19 +1,26 @@
 package com.felipe.issa.leetcode.exercices;
 
-import java.text.MessageFormat;
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.junit.Assert.assertEquals;
+
+
 public class _456_OneTwoThreePattern {
 
+    /**
+     * https://leetcode.com/problems/132-pattern/
+     */
     public boolean find132pattern(int[] nums) {
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
         Map<Integer, List<Integer>> map = new HashMap<>();
 
-        for(int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length; i++) {
             int number = nums[i];
             min = Math.min(min, number);
             max = Math.max(max, number);
@@ -23,15 +30,14 @@ public class _456_OneTwoThreePattern {
             map.put(number, currentValuePositions);
         }
 
-        System.out.println(MessageFormat.format("Min: {0}, max: {1}", min, max));
-
         return false;
     }
+
     public boolean find132patternBruteForce(int[] nums) {
-        for(int i = 0; i < nums.length; i++) {
-            for(int j = i + 1; j < nums.length; j++) {
-                for(int k = j + 1; k < nums.length; k++) {
-                    if(nums[i] < nums[k] && nums[k] < nums[j]) return true;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                for (int k = j + 1; k < nums.length; k++) {
+                    if (nums[i] < nums[k] && nums[k] < nums[j]) return true;
                 }
             }
         }
@@ -39,14 +45,23 @@ public class _456_OneTwoThreePattern {
         return false;
     }
 
-    public static void main(String[] args) {
-        boolean result = new _456_OneTwoThreePattern().find132pattern(new int[]{ 1,2,3,4 });
-        System.out.println(MessageFormat.format("Result is: {0}, expected {1}.", result, false));
+    @Test
+    public void firstCase() {
+        boolean output = new _456_OneTwoThreePattern().find132patternBruteForce(new int[]{1, 2, 3, 4});
+        ;
+        assertEquals(false, output);
+    }
 
-        result = new _456_OneTwoThreePattern().find132pattern(new int[]{ 3, 1, 4, 2 });
-        System.out.println(MessageFormat.format("Result is: {0}, expected {1}.", result, true));
+    @Test
+    public void secondCase() {
+        boolean output = new _456_OneTwoThreePattern().find132patternBruteForce(new int[]{3, 1, 4, 2});
+        assertEquals(true, output);
+    }
 
-        result = new _456_OneTwoThreePattern().find132pattern(new int[]{ 3, 1, 4, 2 });
-        System.out.println(MessageFormat.format("Result is: {0}, expected {1}.", result, true));
+    @Test
+    public void thirdCase() {
+        boolean output = new _456_OneTwoThreePattern().find132patternBruteForce(new int[]{3, 1, 4, 2});
+        ;
+        assertEquals(true, output);
     }
 }

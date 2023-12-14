@@ -1,9 +1,10 @@
 package com.felipe.issa.leetcode.exercices;
 
 import com.felipe.issa.leetcode.shared.ListNode;
+import com.felipe.issa.leetcode.shared.ListNodeBuilder;
+import org.junit.Test;
 
-import java.math.BigInteger;
-import java.util.List;
+import static org.junit.Assert.assertEquals;
 
 public class _2AddTwoNumbers {
 
@@ -12,8 +13,17 @@ public class _2AddTwoNumbers {
      * https://leetcode.com/problems/add-two-numbers/
      */
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        // my answer works, but its not ideal.
-        return null;
+        java.math.BigInteger sum = getSum(l1);
+        sum = sum.add(getSum(l2));
+
+        String[] value = sum.toString().split("");
+
+        ListNode result = null;
+        for(String current: value) {
+            result = new ListNode(Integer.parseInt(current), result);
+        }
+
+        return result;
     }
 
     private java.math.BigInteger getSum(ListNode l1) {
@@ -34,24 +44,30 @@ public class _2AddTwoNumbers {
         return sum;
     }
 
-    public static void main(String[] args) {
-        ListNode node1 = new ListNode(2, new ListNode(4, new ListNode(3)));
-        ListNode node2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+    @Test
+    public void firstCase() {
+        ListNode output = new _2AddTwoNumbers().addTwoNumbers(
+            ListNodeBuilder.buildList("[2,4,3]"), ListNodeBuilder.buildList("[5,6,4]")
+        );
 
-        new _2AddTwoNumbers().addTwoNumbers(node1, node2);
+        assertEquals(ListNodeBuilder.buildList("[7,0,8]"), output);
+    }
 
-        node1 = new ListNode(9);
-        node2 = new ListNode(1, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))))))))));
+    @Test
+    public void secondCase() {
+        ListNode output = new _2AddTwoNumbers().addTwoNumbers(
+            ListNodeBuilder.buildList("[0]"), ListNodeBuilder.buildList("[0]")
+        );
 
-//        new _2AddTwoNumbers().addTwoNumbers(node1, node2);
+        assertEquals(ListNodeBuilder.buildList("[0]"), output);
+    }
 
+    @Test
+    public void thirdCase() {
+        ListNode output = new _2AddTwoNumbers().addTwoNumbers(
+            ListNodeBuilder.buildList("[9,9,9,9,9,9,9]"), ListNodeBuilder.buildList("[9,9,9,9]")
+        );
 
-        node2 = new ListNode(5, new ListNode(6, new ListNode(4)));
-        node1 = new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(1))))))))));
-        node1 = new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, node1)))))))));
-        node1 = new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, new ListNode(0, node1)))))))));
-        node1 = new ListNode(1, new ListNode(0, new ListNode(0, new ListNode(0, node1))));
-
-//        new _2AddTwoNumbers().addTwoNumbers(node1, node2);
+        assertEquals(ListNodeBuilder.buildList("[8,9,9,9,0,0,0,1]"), output);
     }
 }

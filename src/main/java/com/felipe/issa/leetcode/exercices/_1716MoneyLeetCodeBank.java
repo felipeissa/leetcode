@@ -1,6 +1,8 @@
 package com.felipe.issa.leetcode.exercices;
 
-import java.text.MessageFormat;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class _1716MoneyLeetCodeBank {
 
@@ -24,42 +26,20 @@ public class _1716MoneyLeetCodeBank {
         return total;
     }
 
-//    public int totalMoney(int n) {
-//        int total = 0;
-//        int weeks = n / 7;
-//        int mod = n % 7;
-//
-//        if(weeks > 0) {
-//            total = 21 + (weeks * 7);
-//        }
-//
-//        System.out.println("total? "+ total);
-//        System.out.println("mod: " + mod);
-//
-//        if(mod == 1) total+= 1 + (1 * weeks);
-//        if(mod == 2) total+= 3 + (2 * weeks);
-//        if(mod == 3) total+= 6 + (3 * weeks);
-//        if(mod == 4) total+= 10 + (4 * weeks);
-//        if(mod == 5) total+= 15 + (5 * weeks);
-//        if(mod == 6) total+= 21 + (6 * weeks);
-//
-//
-//        return total;
-//    }
-
-    public static void main(String[] args) {
-        int expected, output;
-
-        expected = 10;
-        output = new _1716MoneyLeetCodeBank().totalMoney(4);
-        System.out.println(MessageFormat.format("Is same: {0}. Expected: {1}, got: {2}", expected == output, expected, output));
-
-        expected = 37;
-        output = new _1716MoneyLeetCodeBank().totalMoney(10);
-        System.out.println(MessageFormat.format("Is same: {0}. Expected: {1}, got: {2}", expected == output, expected, output));
-
-        expected = 96;
-        output = new _1716MoneyLeetCodeBank().totalMoney(20);
-        System.out.println(MessageFormat.format("Is same: {0}. Expected: {1}, got: {2}", expected == output, expected, output));
+    @Test
+    public void firstCase() {
+        int output = new _1716MoneyLeetCodeBank().totalMoney(4);;
+        assertEquals(10, output);
     }
+    @Test
+    public void secondCase() {
+        int output = new _1716MoneyLeetCodeBank().totalMoney(10);
+        assertEquals(37, output);
+    }
+    @Test
+    public void thirdCase() {
+        int output = new _1716MoneyLeetCodeBank().totalMoney(20);
+        assertEquals(96, output);
+    }
+
 }

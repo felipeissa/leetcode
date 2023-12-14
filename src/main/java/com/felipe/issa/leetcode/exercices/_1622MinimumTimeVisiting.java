@@ -1,6 +1,8 @@
 package com.felipe.issa.leetcode.exercices;
 
-import java.text.MessageFormat;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class _1622MinimumTimeVisiting {
     public int minTimeToVisitAllPoints(int[][] points) {
@@ -10,7 +12,7 @@ public class _1622MinimumTimeVisiting {
         int currentY = points[0][1];
 
 
-        for(int i = 1; i < points.length; i++) {
+        for (int i = 1; i < points.length; i++) {
             int nextX = points[i][0];
             int nextY = points[i][1];
 
@@ -26,12 +28,9 @@ public class _1622MinimumTimeVisiting {
         return time;
     }
 
-    public static void main(String[] args) {
-        int output;
-        int expected;
-
-        output = new _1622MinimumTimeVisiting().minTimeToVisitAllPoints(new int[][]{ new int[]{1, 1}, new int[] {3, 4}, new int[]{-1, 0}});
-        expected = 7;
-        System.out.println(MessageFormat.format("Is same: {0}. Expected: {1}, got: {2}", output == expected, expected, output));
+    @Test
+    public void firstCase() {
+        int output = new _1622MinimumTimeVisiting().minTimeToVisitAllPoints(new int[][]{new int[]{1, 1}, new int[]{3, 4}, new int[]{-1, 0}});
+        assertEquals(7, output);
     }
 }

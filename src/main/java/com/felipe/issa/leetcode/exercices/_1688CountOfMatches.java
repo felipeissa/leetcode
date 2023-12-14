@@ -1,6 +1,10 @@
 package com.felipe.issa.leetcode.exercices;
 
+import org.junit.Test;
+
 import java.text.MessageFormat;
+
+import static org.junit.Assert.assertEquals;
 
 public class _1688CountOfMatches {
     public int numberOfMatches(int n) {
@@ -16,14 +20,14 @@ public class _1688CountOfMatches {
         return totalMatches;
     }
 
-    public static void main(String[] args) {
-        int output, expected;
-        output = new _1688CountOfMatches().numberOfMatches(7);
-        expected = 6;
-        System.out.println(MessageFormat.format("Is same: {0}. Expected: {1}, got: {2}.", output == expected, expected, output));
-
-        output = new _1688CountOfMatches().numberOfMatches(14);
-        expected = 13;
-        System.out.println(MessageFormat.format("Is same: {0}. Expected: {1}, got: {2}.", output == expected, expected, output));
+    @Test
+    public void firstCase() {
+        int output = new _1688CountOfMatches().numberOfMatches(7);;
+        assertEquals(6, output);
+    }
+    @Test
+    public void secondCase() {
+        int output = new _1688CountOfMatches().numberOfMatches(14);;
+        assertEquals(13, output);
     }
 }

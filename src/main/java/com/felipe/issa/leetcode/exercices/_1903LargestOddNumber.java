@@ -1,31 +1,35 @@
 package com.felipe.issa.leetcode.exercices;
 
-import java.text.MessageFormat;
+import org.junit.Test;
+
+import static junit.framework.TestCase.assertEquals;
 
 public class _1903LargestOddNumber {
 
     public String largestOddNumber(String num) {
-        for(int i = num.length() -1 ; i >= 0; i--) {
-            if(num.charAt(i) % 2 == 1) return num.substring(0, i+1);
+        for (int i = num.length() - 1; i >= 0; i--) {
+            if (num.charAt(i) % 2 == 1) return num.substring(0, i + 1);
         }
 
         return "";
     }
 
-    public static void main(String[] args) {
-        String output;
-        String expected;
+    @Test
+    public void firstCase() {
+        String output = new _1903LargestOddNumber().largestOddNumber("4206");
+        ;
+        assertEquals("", output);
+    }
 
-        expected = "5";
-        output = new _1903LargestOddNumber().largestOddNumber("52");
-        System.out.println(MessageFormat.format("Is same: {0}. Expected: {1}, got: {2}", expected.equals(output), expected, output));
+    @Test
+    public void secondCase() {
+        String output = new _1903LargestOddNumber().largestOddNumber("52");
+        assertEquals("5", output);
+    }
 
-        expected = "";
-        output = new _1903LargestOddNumber().largestOddNumber("4206");
-        System.out.println(MessageFormat.format("Is same: {0}. Expected: {1}, got: {2}", expected.equals(output), expected, output));
-
-        expected = "35427";
-        output = new _1903LargestOddNumber().largestOddNumber("35427");
-        System.out.println(MessageFormat.format("Is same: {0}. Expected: {1}, got: {2}", expected.equals(output), expected, output));
+    @Test
+    public void thirdCase() {
+        String output = new _1903LargestOddNumber().largestOddNumber("35427");
+        assertEquals("35427", output);
     }
 }

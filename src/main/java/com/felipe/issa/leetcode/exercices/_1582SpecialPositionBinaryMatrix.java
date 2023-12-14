@@ -43,19 +43,19 @@ public class _1582SpecialPositionBinaryMatrix {
     }
 
 
-//    @Test
+    @Test
     public void caseOne() {
         int output = new _1582SpecialPositionBinaryMatrix().numSpecial(new int[][] { new int[] {1,0 ,0}, new int[] {0 ,0, 1}, new int[] {1,0 ,0}, });
         assertEquals(1, output);
     }
 
-//    @Test
+    @Test
     public void caseTwo() {
         int output = new _1582SpecialPositionBinaryMatrix().numSpecial(new int[][] { new int[] {1,0,0}, new int[] {0,1,0}, new int[] {0,0,1}, });
         assertEquals(3, output);
     }
 
-//    @Test
+    @Test
     public void caseFortyFour() { //[[0,0,1,0],[0,0,0,0],[0,0,0,0],[0,1,0,0]]
         int output = new _1582SpecialPositionBinaryMatrix().numSpecial(new int[][] { new int[] {0,0,1,0}, new int[] {0,0,0,0}, new int[] {0,0,0,0}, new int[] { 0,1,0,0 } });
         assertEquals(2, output);

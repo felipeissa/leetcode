@@ -1,7 +1,12 @@
 package com.felipe.issa.leetcode.exercices;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class _20ValidParentheses {
 
@@ -31,14 +36,27 @@ public class _20ValidParentheses {
         return stacked.isEmpty();
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void firstCase(){
         boolean isValid = new _20ValidParentheses().isValid("()");
-        System.out.println("Is valid: " + isValid +", should be true");
-        isValid = new _20ValidParentheses().isValid("()[]{}");
-        System.out.println("Is valid: " + isValid +", should be true");
-        isValid = new _20ValidParentheses().isValid("()([]{})");
-        System.out.println("Is valid: " + isValid +", should be true");
-        isValid = new _20ValidParentheses().isValid("({");
-        System.out.println("Is valid: " + isValid +", should be true");
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void secondCase(){
+        boolean isValid = new _20ValidParentheses().isValid("()[]{}");
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void thirdCase(){
+        boolean isValid = new _20ValidParentheses().isValid("()([]{})");
+        assertTrue(isValid);
+    }
+
+    @Test
+    public void forthCase(){
+        boolean isValid = new _20ValidParentheses().isValid("({");
+        assertFalse(isValid);
     }
 }

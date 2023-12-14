@@ -1,8 +1,12 @@
 package com.felipe.issa.leetcode.exercices;
 
+import org.junit.Test;
+
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class _2147LongCorridor {
 
@@ -35,31 +39,37 @@ public class _2147LongCorridor {
         return (int)ways;
     }
 
-    public static void main(String[] args) {
-        int output;
-        int expected;
-        output = new _2147LongCorridor().numberOfWays("SSPS");
-        expected = 0;
-        System.out.println(MessageFormat.format("Is same: {0}, Expected: {1}, got: {2}", output == expected, expected, output));
+    @Test
+    public void firstCase() {
+        int output = new _2147LongCorridor().numberOfWays("SSPS");;
+        assertEquals(0, output);
+    }
+    @Test
+    public void secondCase() {
+        int output = new _2147LongCorridor().numberOfWays("PPSPSP");
+        assertEquals(1, output);
+    }
+    @Test
+    public void thirdCase() {
+        int output = new _2147LongCorridor().numberOfWays("SSPPSPS");;
+        assertEquals(3, output);
+    }
 
-        output = new _2147LongCorridor().numberOfWays("PPSPSP");
-        expected = 1;
-        System.out.println(MessageFormat.format("Is same: {0}, Expected: {1}, got: {2}", output == expected, expected, output));
+    @Test
+    public void forthCase() {
+        int output = new _2147LongCorridor().numberOfWays("SPPSSSSPPS");
+        assertEquals(1, output);
+    }
 
-        output = new _2147LongCorridor().numberOfWays("SSPPSPS");
-        expected = 3;
-        System.out.println(MessageFormat.format("Is same: {0}, Expected: {1}, got: {2}", output == expected, expected, output));
+    @Test
+    public void fifthCase() {
+        int output = new _2147LongCorridor().numberOfWays("P");
+        assertEquals(0, output);
+    }
 
-        output = new _2147LongCorridor().numberOfWays("SPPSSSSPPS");
-        expected = 1;
-        System.out.println(MessageFormat.format("Is same: {0}, Expected: {1}, got: {2}", output == expected, expected, output));
-
-        output = new _2147LongCorridor().numberOfWays("P");
-        expected = 0;
-        System.out.println(MessageFormat.format("Is same: {0}, Expected: {1}, got: {2}", output == expected, expected, output));
-
-        output = new _2147LongCorridor().numberOfWays("PPPPPSPPSPPSPPPSPPPPSPPPPSPPPPSPPSPPPSPSPPPSPSPPPSPSPPPSPSPPPPSPPPPSPPPSPPSPPPPSPSPPPPSPSPPPPSPSPPPSPPSPPPPSPSPSS");
-        expected = 919999993;
-        System.out.println(MessageFormat.format("Is same: {0}, Expected: {1}, got: {2}", output == expected, expected, output));
+    @Test
+    public void sixthCase() {
+        int output = new _2147LongCorridor().numberOfWays("PPPPPSPPSPPSPPPSPPPPSPPPPSPPPPSPPSPPPSPSPPPSPSPPPSPSPPPSPSPPPPSPPPPSPPPSPPSPPPPSPSPPPPSPSPPPPSPSPPPSPPSPPPPSPSPSS");
+        assertEquals(919999993, output);
     }
 }

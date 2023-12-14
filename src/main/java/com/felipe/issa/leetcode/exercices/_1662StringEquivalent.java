@@ -1,8 +1,12 @@
 package com.felipe.issa.leetcode.exercices;
 
+import org.junit.Test;
+
 import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.stream.Collectors;
+
+import static org.junit.Assert.assertEquals;
 
 public class _1662StringEquivalent {
 
@@ -50,21 +54,19 @@ public class _1662StringEquivalent {
         return w1.equals(w2);
     }
 
-
-    public static void main(String[] args) {
-        boolean result;
-        boolean expected;
-        result = new _1662StringEquivalent().arrayStringsAreEqual(new String[] {"ab", "c"}, new String[]{"a", "bc"});
-        expected = true;
-        System.out.println(MessageFormat.format("Result is: {0}. Expected: {1}, got: {2}", result == expected, expected, result));
-
-        result = new _1662StringEquivalent().arrayStringsAreEqual(new String[] {"ac", "b"}, new String[]{"a", "bc"});
-        expected = false;
-        System.out.println(MessageFormat.format("Result is: {0}. Expected: {1}, got: {2}", result == expected, expected, result));
-
-        result = new _1662StringEquivalent().arrayStringsAreEqual(new String[] {"abc", "d", "defg"}, new String[]{"abcddefg"});
-        expected = true;
-        System.out.println(MessageFormat.format("Result is: {0}. Expected: {1}, got: {2}", result == expected, expected, result));
-
+    @Test
+    public void firstCase() {
+        boolean output = new _1662StringEquivalent().arrayStringsAreEqual(new String[] {"ab", "c"}, new String[]{"a", "bc"});;
+        assertEquals(true, output);
+    }
+    @Test
+    public void secondCase() {
+        boolean output = new _1662StringEquivalent().arrayStringsAreEqual(new String[] {"ac", "b"}, new String[]{"a", "bc"});
+        assertEquals(false, output);
+    }
+    @Test
+    public void thirdCase() {
+        boolean output = new _1662StringEquivalent().arrayStringsAreEqual(new String[] {"abc", "d", "defg"}, new String[]{"abcddefg"});;
+        assertEquals(true, output);
     }
 }

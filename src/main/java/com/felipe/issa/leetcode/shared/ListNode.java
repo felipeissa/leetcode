@@ -16,4 +16,17 @@ public class ListNode {
     public ListNode getNext() {
         return next;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == this) return true;
+        if(!(obj instanceof ListNode)) return false;
+
+        ListNode objValue = (ListNode) obj;
+
+        if(objValue.val != this.val) return false;
+        if((next != null && !next.equals(objValue.next)) || (next == null && objValue.next != null)) return false;
+
+        return true;
+    }
 }

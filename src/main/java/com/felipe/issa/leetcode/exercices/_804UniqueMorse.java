@@ -1,8 +1,12 @@
 package com.felipe.issa.leetcode.exercices;
 
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import static org.junit.Assert.assertEquals;
 
 public class _804UniqueMorse {
 	
@@ -22,12 +26,10 @@ public class _804UniqueMorse {
 	private String StringtoMorseCode(String character) {
 		return MORSE_VALUES[character.charAt(0) - 'a'];
 	}
-	
-	public static void main(String[] args) {
-		String[] words = new String[] {"gin","zen","gig","msg" };
-		
-		int unique = new _804UniqueMorse().uniqueMorseRepresentations(words);
-		
-		System.out.println(unique);
+
+	@Test
+	public void firstCase() {
+		int output = new _804UniqueMorse().uniqueMorseRepresentations(new String[] {"gin","zen","gig","msg" });
+		assertEquals(2, output);
 	}
 }

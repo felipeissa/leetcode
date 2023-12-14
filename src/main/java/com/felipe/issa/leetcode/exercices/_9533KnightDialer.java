@@ -1,6 +1,8 @@
 package com.felipe.issa.leetcode.exercices;
 
-import java.text.MessageFormat;
+import org.junit.Test;
+
+import static junit.framework.TestCase.assertEquals;
 
 public class _9533KnightDialer {
 
@@ -49,19 +51,19 @@ public class _9533KnightDialer {
         return ans;
     }
 
-    public static void main(String[] args) {
-        int output;
-        int expected;
-        output = new _9533KnightDialer().knightDialer(1);
-        expected = 10;
-        System.out.println(MessageFormat.format("Is same: {0}. Expected: {1}, got: {2}", output == expected, expected, output));
-
-        output = new _9533KnightDialer().knightDialer(2);
-        expected = 20;
-        System.out.println(MessageFormat.format("Is same: {0}. Expected: {1}, got: {2}", output == expected, expected, output));
-
-        output = new _9533KnightDialer().knightDialer(20);
-        expected = 136006598;
-        System.out.println(MessageFormat.format("Is same: {0}. Expected: {1}, got: {2}", output == expected, expected, output));
+    @Test
+    public void firstCase() {
+        int output = new _9533KnightDialer().knightDialer(1);
+        assertEquals(10, output);
+    }
+    @Test
+    public void secondCase() {
+        int output =  new _9533KnightDialer().knightDialer(2);
+        assertEquals(20, output);
+    }
+    @Test
+    public void thirdCase() {
+        int output = new _9533KnightDialer().knightDialer(20);
+        assertEquals(136006598, output);
     }
 }

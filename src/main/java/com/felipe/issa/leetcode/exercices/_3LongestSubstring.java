@@ -1,7 +1,11 @@
 package com.felipe.issa.leetcode.exercices;
 
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
 
 public class _3LongestSubstring {
 
@@ -56,20 +60,33 @@ public class _3LongestSubstring {
         return biggestFound;
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void firstCase() {
         int result = new _3LongestSubstring().lengthOfLongestSubstring("abcabcbb");
-        System.out.println("Result is: " + result + ", should be 3");
+        assertEquals(3, result);
+    }
 
-        result = new _3LongestSubstring().lengthOfLongestSubstring("bbbbb");
-        System.out.println("Result is: " + result + ", should be 1");
+    @Test
+    public void secondCase() {
+        int result = new _3LongestSubstring().lengthOfLongestSubstring("bbbbb");
+        assertEquals(1, result);
+    }
 
-        result = new _3LongestSubstring().lengthOfLongestSubstring("pwwkew");
-        System.out.println("Result is: " + result + ", should be 3");
+    @Test
+    public void thirdCase() {
+        int result = new _3LongestSubstring().lengthOfLongestSubstring("pwwkew");
+        assertEquals(3, result);
+    }
 
-        result = new _3LongestSubstring().lengthOfLongestSubstring("");
-        System.out.println("Result is: " + result + ", should be 0");
+    @Test
+    public void forthCase() {
+        int result = new _3LongestSubstring().lengthOfLongestSubstring("");
+        assertEquals(0, result);
+    }
 
-        result = new _3LongestSubstring().lengthOfLongestSubstring(" ");
-        System.out.println("Result is: " + result + ", should be 1");
+    @Test
+    public void fifthCase() {
+        int result = new _3LongestSubstring().lengthOfLongestSubstring(" ");
+        assertEquals(1, result);
     }
 }

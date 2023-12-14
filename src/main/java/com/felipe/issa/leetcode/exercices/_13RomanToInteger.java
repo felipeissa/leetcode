@@ -1,10 +1,12 @@
 package com.felipe.issa.leetcode.exercices;
 
+import org.junit.Test;
+
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
+
+import static org.junit.Assert.assertEquals;
 
 public class _13RomanToInteger {
 	
@@ -46,16 +48,20 @@ public class _13RomanToInteger {
         }
     }
 
-	public static void main(String[] args) {
-		Map<String, Integer> values = new HashMap<>();
-		values.put("III", 3);
-		values.put("LVIII", 58);
-//		values.put("MCMXCIV", 1994);
-		values.put("MCMXCIV", 1994);
-		values.keySet().forEach(key -> {
-			System.out.println("Value: " + key + ", expected: " + values.get(key) + ", got: " + new _13RomanToInteger().romanToInt(key));
-		});
+    @Test
+    public void caseOne() {
+         int output = new _13RomanToInteger().romanToInt("III");
+         assertEquals(3, output);
+    }
 
-	}
-
+    @Test
+    public void caseTwo() {
+         int output = new _13RomanToInteger().romanToInt("LVIII");
+         assertEquals(58, output);
+    }
+    @Test
+    public void caseThree() {
+         int output = new _13RomanToInteger().romanToInt("MCMXCIV");
+         assertEquals(1994, output);
+    }
 }

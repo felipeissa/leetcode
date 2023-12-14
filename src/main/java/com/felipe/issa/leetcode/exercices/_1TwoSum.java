@@ -1,7 +1,13 @@
 package com.felipe.issa.leetcode.exercices;
 
+import org.junit.Test;
+
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 public class _1TwoSum {
 
@@ -58,10 +64,9 @@ public class _1TwoSum {
         return new int[] {};
     }
 
-    public static void main(String[] args) {
-        int[] nums = new int[] {2,7,11,15};
-
-        int[] response = new _1TwoSum().twoSum(nums, 9);
-        System.out.println(response[0] + "," + response[1]);
+    @Test
+    public void test() {
+        int[] output = new _1TwoSum().twoSum(new int[] {2,7,11,15}, 9);
+        assertArrayEquals(new int[]{1, 0}, output);
     }
 }
